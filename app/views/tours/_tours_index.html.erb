@@ -1,8 +1,8 @@
 <div class="white-bg pad-block trip-wrap">
   <div class="container">
     <div class="main-title">
-      <h1>FIND YOUR <span>TRIP</span></h1>
-      <p class="tag">Join a trip and start organizing it !</p>
+      <h1>FIND YOUR <span>ROAD TRIP</span></h1>
+      <p class="tag">Join a Road Trip and start organizing it !</p>
     </div>
 
     <% if @tours.present? || @tourstrip.present? %>
@@ -16,7 +16,7 @@
                   </div>
                   <div class="trip-info">
                     <h3 class="trip-name"><%= tour.name %></h3>
-                    <div class="tag-wrap"><h4>This trip starts in <%= tour.start_time.strftime('%B %Y') %></h4></div>
+                    <div class="tag-wrap"><h4>This road trip starts in <%= tour.start_time.strftime('%B %Y') %></h4></div>
 
                     <div class="trip-desc">
                       <p><strong>From:</strong>
@@ -90,7 +90,7 @@
     <% else %>
         <div class="blank-msg">
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-          <h1>There are no trips in this category yet, be the first to create one!</h1>
+          <h1>There are no Road Trips in this category yet, be the first to create one!</h1>
         </div>
     <% end %>
   </div>
@@ -102,7 +102,7 @@
 
 <div class="pad-block gray-bg">
   <div class="container">
-    <div class="main-title"><h1>CREATE OR JOIN<span> A TRIP !</span></h1>
+    <div class="main-title"><h1>CREATE OR JOIN<span> A ROAD TRIP !</span></h1>
       <% if user_signed_in? %>
       <% else%>
           <%= link_to new_user_registration_path, class: 'line-btn' do %>
