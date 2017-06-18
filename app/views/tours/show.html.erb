@@ -5,7 +5,8 @@
               <div class="trip-image">
                 <%= image_tag @tour.tour_img.url(:grande_img), class: "fix-img",alt:"" , style:"width: 100%;" %>
               </div>
-          </div>
+            </div>
+
           <div class="col-sm-6 col-md-6">
               <div class="trip-data">
                   <div class="trip-info">
@@ -24,7 +25,23 @@
                                 <%= @tour.tour_languages.map{|p| Language.find(p.language_id).name}.join(",")%>
                             </p></li>
                           </ul>
+                          <div>
+<ins class="bookingaff" data-aid="1288960" data-target_aid="" data-prod="sbp" data-width="750" data-height="300" data-df_num_properties="3">
+    <!-- Anything inside will go away once widget is loaded. -->
+    <a href="//www.booking.com?aid=">Booking.com</a>
+</ins>
+<script type="text/javascript">
+    (function(d, sc, u) {
+      var s = d.createElement(sc), p = d.getElementsByTagName(sc)[0];
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = u + '?v=' + (+new Date());
+      p.parentNode.insertBefore(s,p);
+      })(document, 'script', '//aff.bstatic.com/static/affiliate_base/js/flexiproduct.js');
+</script>
+</div>
                       </div>
+
                       <div class="trip-locat">
                         <p><%= image_tag("pin.png" ,  alt:"") %><%=@tour.category.name %></p>
                         <% if @tour.owner != current_user %>
@@ -36,14 +53,14 @@
                             <%else%>
                                 <%= link_to 'Leave', tours_unsubscribe_path(id: @tour.id), method: :post, class: 'line-btn', role: 'button' %>
                             <%end%>
-                                <%= link_to 'Unlock the tour', tours_unlock_path(@tour), method: :post, class: 'line-btn', role: 'button' %>
+                                <%= link_to 'Unlock the Road Trip', tours_unlock_path(@tour), method: :post, class: 'line-btn', role: 'button' %>
                             <% else %>
                             <% if @tour.tours_users.count == 0 %>
                               <%= link_to 'Leave', tours_trip_leave_path(id: @tour.id), method: :delete, class: 'line-btn', role: 'button' %>
                             <%else%>
                                 <%= link_to 'Leave', tours_unsubscribe_path(id: @tour.id), method: :post, class: 'line-btn', role: 'button' %>
                             <%end%>
-                                <%= link_to 'Lock the tour', tours_lock_path(@tour), method: :post, class: 'line-btn', role: 'button' %>
+                                <%= link_to 'Lock the Road Trip', tours_lock_path(@tour), method: :post, class: 'line-btn', role: 'button' %>
                             <% end %>
                         <% end %>
                       </div>
