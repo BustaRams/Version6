@@ -17,7 +17,7 @@
   <div class="modal-dialog">
 
     <!-- Modal content-->
-
+    <% if @tour.locked? == false %>
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -30,7 +30,26 @@
         <p>- Don't communicate anything personal on this page</p>
         <p>Have Fun :D</p>
       </div>
+      <%else%>
+      <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>This Trip is locked by its creator because it's full, create another one for the same destination</p>
+        </div>
+
+      <%end%>
       
+    <% if @tour.locked? == false %>
+      <div class="modal-footer">
+        <%= link_to "OK", tours_subscribe_path(id: @tour.id), method: :post ,class: 'line-btn'%>
+      </div>
+      <%else%>
+       <div class="modal-footer">
+      <%= link_to "OK", new_tour_path ,class: 'line-btn'%>
+      </div>
+      <%end%>
     </div>
 
 
