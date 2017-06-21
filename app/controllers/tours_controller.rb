@@ -70,7 +70,6 @@ class ToursController < ApplicationController
     if @tour.save
       redirect_to @tour, notice: 'Tour was successfully created.'
     else
-      puts @tour.errors.full_messages
       @categories = Category.all.map{ |c| [c.name, c.id] }
       render :new
     end
