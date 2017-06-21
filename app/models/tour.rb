@@ -6,7 +6,7 @@ class Tour < ApplicationRecord
   has_many :ideas, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :languages, through: :users
-  belongs_to :main_language, class_name: 'Language', foreign_key: 'language_id'
+  belongs_to :main_language, class_name: 'Language', foreign_key: 'language_id', optional: true
   has_many :tour_languages, dependent: :destroy
 
   accepts_nested_attributes_for :tour_languages
