@@ -85,9 +85,9 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Some action cable for heroku configs.
-  config.action_cable.allowed_request_origins = ['https://bon-voyaj.herokuapp.com', 'http://bon-voyaj.herokuapp.com', 'bon-voyaj.herokuapp.com']
+  config.action_cable.allowed_request_origins = ['https://voyajers-app.herokuapp.com', 'http://voyajers-app.herokuapp.com', 'voyajers-app.herokuapp.com']
   #config.action_cable.url = 'wss://bon-voyaj.herokuapp.com/cable'
-  config.action_cable.url = 'wss://bon-voyaj.herokuapp.com/cable'
+  config.action_cable.url = 'wss://voyajers-app.herokuapp.com/cable'
 
   # paperclip
   config.paperclip_defaults = {
