@@ -2,7 +2,7 @@ class ToursController < ApplicationController
   before_action :set_tour, only: [:show, :edit, :update, :destroy, :subscribe, :unsubscribe,
                                   :post_idea, :delete_idea, :kick_user, :unlock_tour, :lock_tour]
 
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :contest, :new_contest_participant]
 
   # GET /tours
   def index
@@ -11,8 +11,12 @@ class ToursController < ApplicationController
     if params[:category].blank?
       @tours = @tours.all
     else
-      @category_id = Category.find_by(name: params[:category]).id
-      @tours = @tours.where(:category_id => @category_id)
+      if current_user
+        @category_id = Category.find_by(name: params[:category]).id
+        @tours = @tours.where(:category_id => @category_id)
+      else
+        redirect_to new_user_session_path
+      end
     end
   end
 
@@ -184,6 +188,21 @@ class ToursController < ApplicationController
     end
   end
 
+  def contest
+  end
+
+  def new_contest_participant
+    @new_participant = ContestParticipant.new(contest_participant_params)
+
+    if @new_participant.valid?
+      @new_participant.deliver
+      redirect_to tours_contest_path, notice: "Your messages has been sent."
+    else
+      flash[:alert] = @new_participant.errors.full_messages&.join(', ')
+      render :contest
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tour
@@ -198,5 +217,11 @@ class ToursController < ApplicationController
       params.require(:tour).permit(:name, :description, :start_time, :category_id,
                                    :tour_img, :language_id, :from_point, :to_point,
                                    tour_languages_attributes: [:id, :language_id, :_destroy])
+    end
+
+    def contest_participant_params
+      params.require(:contest_participant).permit(:first_name, :last_name, :email, :date_of_birth,
+                                                  :dream_destinations, :languages, :position,
+                                                  :why_to_choose, :friends)
     end
 end

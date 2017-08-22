@@ -1,0 +1,71 @@
+<%= form_for ContestParticipant.new, url: new_contest_participant_path do |f| %>
+  <fieldset>
+    <div class="question">
+      <span> First Name* </span>
+    </div>
+    <div class="field">
+      <%= f.text_field :first_name, class: 'transparent-input', required: true %>
+    </div>
+
+    <div class="question">
+      <span> Last Name* </span>
+    </div>
+    <div class="field">
+      <%= f.text_field :last_name, class: 'transparent-input', required: true  %>
+    </div>
+
+    <div class="question">
+      <span> Email* </span>
+    </div>
+    <div class="field">
+      <%= f.email_field :email, class: 'transparent-input', required: true %>
+    </div>
+
+    <div class="question">
+      <span> Date of birth* </span>
+    </div>
+    <div class="field">
+      <%= f.text_field :date_of_birth, class: 'transparent-input', required: true %>
+    </div>
+
+    <div class="question">
+      <span> Top 5 Dream Destinations* </span>
+    </div>
+     <div class="field">
+      <%= f.text_field :dream_destinations, class: 'transparent-input', required: true %>
+    </div>
+
+    <div class="question">
+      <span> What languages do you speak?* </span>
+    </div>
+    <div class="field">
+      <%= f.text_field :languages, class: 'transparent-input', required: true %>
+    </div>
+
+    <div class="question">
+      <span> What position are you applying for?* </span>
+    </div>
+    <div class="field">
+      <%= f.text_field :position, class: 'transparent-input', required: true %>
+    </div>
+
+    <div class="question">
+      <span> Why should we chose you?* </span>
+    </div>
+    <div class="field">
+      <%= f.text_area :why_to_choose, class: 'transparent-input', required: true %>
+    </div>
+
+    <div class="question">
+      <span> If someone you know applied for Dream Life as well and you’d like to go on this adventure with them, tell us who they are?* </span>
+    </div>
+    <div class="field">
+      <%= f.text_area :friends, class: 'transparent-input', required: true %>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="field">
+      <%= f.submit "Send", class: 'btn btn-default' %>
+    </div>
+  </fieldset>
+<% end %>

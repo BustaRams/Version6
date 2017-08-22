@@ -12,6 +12,7 @@
  *
  *= require bootstrap.min
  *= require style
+ *= require customs
  *= require_self
  * require_tree .
  */
@@ -47,3 +48,4 @@
 #tour_description {
 	height : 150px;
 }
+

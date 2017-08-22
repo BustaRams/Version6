@@ -29,6 +29,7 @@
                   <li><%= link_to "Create Road Trip", new_tour_path %></li>
                   <li><%= link_to "My Road Trips", tours_by_owner_path %></li>
                   <li><%= link_to "Contact Us", contact_us_path %></li>
+                  <li class = 'contest-tab'><%= link_to "Contest", tours_contest_path %></li>
                   <li class ="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -40,6 +41,7 @@
                   <li><%= link_to "Contact Us", contact_us_path %></li>
                   <li><%= link_to "Sign Up", new_user_registration_path %></li>
                   <li><%= link_to "Log In", new_user_session_path %></li>
+                  <li class = 'contest-tab'><%= link_to "Contest", tours_contest_path %></li>
               <% end %>
           </ul>
       </div>

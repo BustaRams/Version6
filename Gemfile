@@ -22,12 +22,14 @@ gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
 gem 'redis', '~> 3.2' # Needed for sockets.
 gem 'resque', "~> 1.22.0"
-
+# Send e-mail straight from forms
+gem 'mail_form'
 
 group :development, :test do
   gem 'thin'
   gem 'byebug', platform: :mri
   gem 'sqlite3'
+  gem 'letter_opener'
 end
 
 group :development do

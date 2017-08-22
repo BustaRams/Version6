@@ -58,17 +58,21 @@ Rails.application.configure do
   #config.action_cable.url = 'wss://bon-voyaj.herokuapp.com/cable'
   config.action_cable.url = 'https://epikformepikthregq.fwd.wf/cable'
 
-
-  config.action_mailer.default_url_options = { host: 'localhost:3000'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      address: 'smtp.gmail.com',
-      port: 587,
-      domain: 'gmail.com',
-      user_name: 'voyajers@gmail.com',
-      password: 'qtvnsnbbtkuitgmm',
-      authentication: :login,
-      enable_starttls_auto: true
-  }
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {}
+  config.action_mailer.asset_host = "http://localhost:3000"
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.perform_caching = false
+  # config.action_mailer.smtp_settings = {
+  #     address: 'smtp.gmail.com',
+  #     port: 587,
+  #     domain: 'gmail.com',
+  #     user_name: 'voyajers@gmail.com',
+  #     password: 'qtvnsnbbtkuitgmm',
+  #     authentication: :login,
+  #     enable_starttls_auto: true
+  # }
 
 end
