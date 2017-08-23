@@ -135,7 +135,7 @@
     width: 100%;
   }
 
- .anchor::before {
+ .form::before {
     content: "";
     display: block;
     margin-top: -50px;
@@ -163,5 +163,73 @@
         width: 100%;
       }
     }
+  }
+}
+
+#successfull-delivery .modal-body{
+  padding: 0 30px !important;
+}
+
+/* Style all font awesome icons */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+.footer-social-icons {
+  width: 350px;
+  display:block;
+  margin: 20px 10px 10px 0;
+}
+.social-icon {
+  color: #fff;
+}
+ul.social-icons {
+  margin-top: 10px;
+}
+.social-icons li {
+  vertical-align: top;
+  display: inline;
+  height: 100px;
+}
+.social-icons a {
+  color: #fff;
+  text-decoration: none;
+}
+.fa-facebook {
+  padding:10px 14px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+  background-color: #322f30;
+  &:hover {
+    background-color: #3d5b99;
+  }
+}
+
+.fa-twitter {
+  padding:10px 12px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+  background-color: #322f30;
+  &:hover {
+    background-color: #00aced;
+  }
+}
+
+.fa-instagram {
+  padding:10px 12px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+  background-color: #322f30;
+  &:hover{
+    background: #d6249f;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    box-shadow: 0px 3px 10px rgba(0,0,0,.25);
   }
 }

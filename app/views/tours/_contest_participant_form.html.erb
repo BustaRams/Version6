@@ -1,4 +1,4 @@
-<%= form_for ContestParticipant.new, url: new_contest_participant_path do |f| %>
+<%= form_for ContestParticipant.new, url: new_contest_participant_path, remote: true do |f| %>
   <fieldset>
     <div class="question">
       <span> First Name* </span>

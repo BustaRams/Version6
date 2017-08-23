@@ -9,14 +9,14 @@
           <div class='col-md-6 col-sm-3 col-lg-6 text'>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
             <div class="go-to-contest">
-              <a class="p-button p-button-secondary" href="#anchor">Go to ...</a>
+              <a class="p-button p-button-secondary" href="#form">Go to ...</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <a class='anchor' id='anchor'></a>
+  <a class='form' id='form'></a>
   <section id='contest-form-container'>
     <div class='row'>
       <div class='col-md-4 col-lg-4 col-sm-4 col-md-offset-4 col-sm-offset-4 contest-form'>
@@ -24,9 +24,28 @@
       </div>
     </div>
   </section>
+  <!-- Modal -->
+  <div id="successfull-delivery" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3>You took the first step towards the Dream Life!<br> You will hear from us soon for the second part of the selection.<br>To make sure you don’t miss any news, make sure to follow our social networks</h3>
+          <div class="footer-social-icons">
+            <ul class="social-icons">
+                <li><a href="https://www.facebook.com/Voyajers/" class="social-icon" target="_blank"> <i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/Voyajers" class="social-icon" target="_blank"> <i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/voyajers/" class="social-icon" target="_blank"> <i class="fa fa-instagram"></i></a></li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <%= link_to 'Close', tours_path, class: "btn btn-default close-modal" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
 
 
 

@@ -196,10 +196,9 @@ class ToursController < ApplicationController
 
     if @new_participant.valid?
       @new_participant.deliver
-      redirect_to tours_contest_path, notice: "Your messages has been sent."
     else
       flash[:alert] = @new_participant.errors.full_messages&.join(', ')
-      render :contest
+      render js: "window.location = '/contest'"
     end
   end
 
