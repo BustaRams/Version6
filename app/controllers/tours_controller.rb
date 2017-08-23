@@ -221,6 +221,6 @@ class ToursController < ApplicationController
     def contest_participant_params
       params.require(:contest_participant).permit(:first_name, :last_name, :email, :date_of_birth,
                                                   :dream_destinations, :languages, :position,
-                                                  :why_to_choose, :friends)
+                                                  :why_to_choose, :friends, :terms_conditions)
     end
 end

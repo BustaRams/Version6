@@ -62,6 +62,13 @@
     <div class="field">
       <%= f.text_area :friends, class: 'transparent-input', required: true %>
     </div>
+
+    <div class="checkbox text-center">
+      <%= f.label :terms_conditions do %>
+        <%= f.check_box :terms_conditions, required: true %>
+        <span></span>I agree to the <%= link_to 'Terms of Service', '/terms_and_conditions.pdf' %>.
+      <% end %>
+    </div>
   </fieldset>
   <fieldset>
     <div class="field">

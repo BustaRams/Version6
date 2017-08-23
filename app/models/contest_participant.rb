@@ -1,4 +1,5 @@
 class ContestParticipant < MailForm::Base
+  attribute :terms_conditions
   attribute :first_name
   attribute :last_name
   attribute :email
@@ -18,6 +19,7 @@ class ContestParticipant < MailForm::Base
   validates :position, presence: true
   validates :why_to_choose, presence: true
   validates :friends, presence: true
+  validates :terms_conditions, acceptance: true
 
   def headers
     {
