@@ -1,78 +1,105 @@
-<%= form_for ContestParticipant.new, url: new_contest_participant_path, remote: true do |f| %>
-  <fieldset>
-    <div class="question">
-      <span> First Name* </span>
-    </div>
-    <div class="field">
-      <%= f.text_field :first_name, class: 'transparent-input', required: true %>
-    </div>
+<div class="white-bg pad-block log-wrap">
+  <div class="container">
+    <%= simple_form_for(new_participant, url: new_contest_participant_path, remote: true) do |f| %>
+      <div class="frm-wrap">
+        <%= f.error_notification %>
+          <div class="gray-box">
+            <div class="frm-line">
+              <div class="frm-half">
+                <div class="form-group">
+                  <label> First Name*</label>
+                  <%= f.text_field :first_name, class: "form-control", placeholder: "John" %>
+                  <p class="error"><%= new_participant.errors.full_messages_for(:first_name)[0] if new_participant.errors[:first_name].present? %></p>
+                </div>
+              </div>
+              <div class="frm-half">
+                <div class="form-group">
+                  <label> Last Name*</label>
+                  <%= f.text_field :last_name, class: "form-control", placeholder: "Smith" %>
+                  <p class="error"><%= new_participant.errors.full_messages_for(:last_name)[0] if new_participant.errors[:last_name].present? %></p>
+                </div>
+              </div>
+            </div>
+            <div class="frm-line">
+              <div class="frm-full">
+                <div class="form-group">
+                  <label> Email*</label>
+                  <%= f.email_field :email, class: "form-control", placeholder: "user@example.com" %>
+                  <p class="error"><%= new_participant.errors.full_messages_for(:email)[0] if new_participant.errors[:email].present? %></p>
+                </div>
+              </div>
+            </div>
+            <div class="frm-line">
+              <div class="frm-half">
+                <div class="form-group">
+                  <label> Date of birth*</label>
+                  <%= f.input :date_of_birth, as: :date, start_year: Date.today.year - 90,
+                                  end_year: Date.today.year - 12,
+                                  order: [:day, :month, :year], label: false %>
 
-    <div class="question">
-      <span> Last Name* </span>
-    </div>
-    <div class="field">
-      <%= f.text_field :last_name, class: 'transparent-input', required: true  %>
-    </div>
+                </div>
+              </div>
+              <div class="frm-half">
+                <div class="form-group">
+                  <label> What languages do you speak?* </label>
+                  <%= f.text_field :languages, class: 'form-control' %>
+                  <p class="error"><%= new_participant.errors.full_messages_for(:languages)[0] if new_participant.errors[:languages].present? %></p>
+                </div>
+              </div>
+            </div>
+            <div class="frm-line">
+              <div class="frm-full">
+                <div class="form-group">
+                  <label>Top 5 Dream Destinations* </label>
+                  <%= f.text_field :dream_destinations, autocomplete: "off", class: "form-control" %>
+                  <p class="error"><%= new_participant.errors.full_messages_for(:dream_destinations)[0] if new_participant.errors[:dream_destinations].present? %></p>
 
-    <div class="question">
-      <span> Email* </span>
-    </div>
-    <div class="field">
-      <%= f.email_field :email, class: 'transparent-input', required: true %>
-    </div>
+                </div>
+              </div>
+            </div>
+            <div class="frm-line">
+              <div class="frm-full">
+                <div class="form-group">
+                  <label>What position are you applying for?* </label>
+                  <%= f.text_field :position, autocomplete: "off", class: "form-control", placeholder: "" %>
+                  <p class="error"><%= new_participant.errors.full_messages_for(:position)[0] if new_participant.errors[:position].present? %></p>
 
-    <div class="question">
-      <span> Date of birth* </span>
-    </div>
-    <div class="field">
-      <%= f.text_field :date_of_birth, class: 'transparent-input', required: true %>
-    </div>
+                </div>
+              </div>
+            </div>
+            <div class="frm-line">
+              <div class="frm-full">
+                <div class="form-group">
+                  <label>Why should we chose you?* </label>
+                  <%= f.text_area :why_to_choose, autocomplete: "off", class: "form-control bigger-textarea", placeholder: "" %>
+                  <p class="error"><%= new_participant.errors.full_messages_for(:why_to_choose)[0] if new_participant.errors[:position].present? %></p>
+                </div>
+              </div>
+            </div>
+            <div class="frm-line">
+              <div class="frm-full">
+                <div class="form-group">
+                  <label>If someone you know applied for Dream Life as well and you’d like to go on this adventure with them, tell us who they are?* </label>
+                  <%= f.text_area :friends, autocomplete: "off", class: "form-control", placeholder: "" %>
+                  <p class="error"><%= new_participant.errors.full_messages_for(:friends)[0] if new_participant.errors[:friends].present? %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="checkbox text-center">
+            <%= f.label :terms_conditions do %>
+              <%= f.check_box :terms_conditions %>
+              <span></span>I agree to the <%= link_to 'Terms of Service', '/terms_and_conditions.pdf' %>.
+              <p class="error"><%= new_participant.errors.full_messages_for(:terms_conditions)[0] if new_participant.errors[:terms_conditions].present? %></p>
+            <% end %>
+          </div>
+          <div class="btn-wrap mar two"><%= f.submit "Send" , { class: 'fill-btn' } %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-    <div class="question">
-      <span> Top 5 Dream Destinations* </span>
-    </div>
-     <div class="field">
-      <%= f.text_field :dream_destinations, class: 'transparent-input', required: true %>
-    </div>
 
-    <div class="question">
-      <span> What languages do you speak?* </span>
-    </div>
-    <div class="field">
-      <%= f.text_field :languages, class: 'transparent-input', required: true %>
-    </div>
 
-    <div class="question">
-      <span> What position are you applying for?* </span>
-    </div>
-    <div class="field">
-      <%= f.text_field :position, class: 'transparent-input', required: true %>
-    </div>
 
-    <div class="question">
-      <span> Why should we chose you?* </span>
-    </div>
-    <div class="field">
-      <%= f.text_area :why_to_choose, class: 'transparent-input', required: true %>
-    </div>
 
-    <div class="question">
-      <span> If someone you know applied for Dream Life as well and you’d like to go on this adventure with them, tell us who they are?* </span>
-    </div>
-    <div class="field">
-      <%= f.text_area :friends, class: 'transparent-input', required: true %>
-    </div>
-
-    <div class="checkbox text-center">
-      <%= f.label :terms_conditions do %>
-        <%= f.check_box :terms_conditions, required: true %>
-        <span></span>I agree to the <%= link_to 'Terms of Service', '/terms_and_conditions.pdf' %>.
-      <% end %>
-    </div>
-  </fieldset>
-  <fieldset>
-    <div class="field">
-      <%= f.submit "Send", class: 'btn btn-default' %>
-    </div>
-  </fieldset>
-<% end %>

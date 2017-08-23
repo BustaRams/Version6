@@ -68,11 +68,12 @@
 }
 
 .image_outer{
-  width: 100%;
-  margin: 0 auto;
-  height: 80vh;
-  background: image-url("contest-bg.jpg") center;
-  position: relative;
+  background-image: image-url("contest-bg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: 100vw;
+  height: calc(100vh - 70px);
 }
 
 .image_outer:before{
@@ -82,17 +83,23 @@
   right: 0;
   left: 0;
   bottom: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0,0,0,0.3);
+}
+
+.u-pad-top{
+  padding-top: 100px;
 }
 
 #contest{
   .headline {
     font-size: 90px;
+    margin-top: 0 !important;
     line-height: 1;
     font-weight: 200;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-top: 10%;
     margin-bottom: 16px;
     color: white;
   }
@@ -103,7 +110,6 @@
   }
 
  .text{
-    margin-top: 5%;
     margin-bottom: 16px;
     color: white;
     font-size: 18px;
@@ -130,11 +136,6 @@
     box-sizing: border-box;
   }
 
-  #contest-form-container{
-    background-color: #D2B25B;
-    width: 100%;
-  }
-
  .form::before {
     content: "";
     display: block;
@@ -147,22 +148,8 @@
     border: 1px solid #D2B25B !important;
   }
 
-  .contest-form{
-    background-color: #DDC885;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    .question span{
-      font-size: 20px;
-      font-weight: 500;
-    }
-
-    .field {
-      margin: 10px 0;
-      input, textarea{
-        font-size: 18px;
-        width: 100%;
-      }
-    }
+  .bigger-textarea{
+    height: 200px;
   }
 }
 

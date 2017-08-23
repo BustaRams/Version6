@@ -189,16 +189,13 @@ class ToursController < ApplicationController
   end
 
   def contest
+    @new_participant = ContestParticipant.new
   end
 
   def new_contest_participant
     @new_participant = ContestParticipant.new(contest_participant_params)
-
     if @new_participant.valid?
       @new_participant.deliver
-    else
-      flash[:alert] = @new_participant.errors.full_messages&.join(', ')
-      render js: "window.location = '/contest'"
     end
   end
 
@@ -219,8 +216,9 @@ class ToursController < ApplicationController
     end
 
     def contest_participant_params
+      date_of_birth = "#{params[:contest_participant]['date_of_birth(1i)']}/#{params[:contest_participant]['date_of_birth(2i)']}/#{params[:contest_participant]['date_of_birth(3i)']}"
       params.require(:contest_participant).permit(:first_name, :last_name, :email, :date_of_birth,
                                                   :dream_destinations, :languages, :position,
-                                                  :why_to_choose, :friends, :terms_conditions)
+                                                  :why_to_choose, :friends, :terms_conditions).merge(date_of_birth: date_of_birth.to_date)
     end
 end
