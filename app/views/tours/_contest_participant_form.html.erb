@@ -79,7 +79,7 @@
             <div class="frm-line">
               <div class="frm-full">
                 <div class="form-group">
-                  <label>If someone you know applied for Dream Life as well and you’d like to go on this adventure with them, tell us who they are?* </label>
+                  <label>If someone you know applied for Dream Life as well and you’d like to go on this adventure with them, tell us who they are?</label>
                   <%= f.text_area :friends, autocomplete: "off", class: "form-control", placeholder: "" %>
                   <p class="error"><%= new_participant.errors.full_messages_for(:friends)[0] if new_participant.errors[:friends].present? %></p>
                 </div>

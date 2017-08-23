@@ -17,7 +17,6 @@ class ContestParticipant < MailForm::Base
   validates :languages, presence: true
   validates :position, presence: true
   validates :why_to_choose, presence: true
-  validates :friends, presence: true
   validates :terms_conditions, acceptance: true
 
   def headers
